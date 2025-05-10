@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pago Exitoso</title>
+</head>
+
+<body>
+    <script>
+        // Extrae los parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+        const paymentData = {
+            payment_id: params.get('payment_id'),
+            status: params.get('status'),
+            merchant_order_id: params.get('merchant_order_id'),
+            // Agrega otros parámetros que necesites
+        };
+
+        // Envía los datos a la ventana que abrió esta pestaña
+        if (window.opener) {
+            window.opener.postMessage(paymentData, '*');
+            // Opcionalmente, cierra esta pestaña
+            window.close();
+        } else {
+            // Si no hay window.opener, muestra un mensaje
+            document.body.innerHTML = "<h3>Pago completado. Puedes cerrar esta ventana.</h3>";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+/*Mobile*/
+@media (max-width: 768px) {
+
+    .contenedorTorneos {
+        margin-top: 12vh;
+    }
+
+    .torneos {
+        margin-top: 12vh;
+    }
+
+    .tablaTorneos .acciones button{
+        width: 100%;
+    }
+
+}
+
+
+/*torneos*/
+
+.contenedorTorneos{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    min-height: 100vh;
+}
+
+.torneosMenu {
+    justify-content: space-between;
+    border-bottom: solid 5px #00BCD4;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.torneosSection .formTorneo .campo{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+
+.selectPagos{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+
+/*tabla*/
+
+.tablaTorneos {
+    width: 100%;
+    margin: auto;
+}
+
+.thTorneos{
+    background-color: #c3c2c2!important;
+}
+
+.tablaTorneos th:nth-child(2) {
+    width: auto;
+}
+
+.tablaTorneos th:nth-child(9) {
+    width: auto;
+}
+
+.tablaTorneos td input {
+    max-width: auto;
+}
+
+.tablaTorneos button {
+    margin-left: 2%;
+}
+
+.tablaTorneos .acciones button{
+    width: 100px;
+}
+
+
+/*buscador*/
+
+.tablaTorneos .busqueda{
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+.formTorneo .btn{
+    margin: 0px;
+}
+
+.tablaJugadores {
+    width: 80%;
+    margin: auto;
+}
+
+.tablaJugadores th:nth-child(2) {
+    width: auto;
+}
+
+.tablaJugadores th:nth-child(9) {
+    width: auto;
+}
+
+.tablaJugadores td input {
+    max-width: auto;
+}
+
+.tablaJugadores button {
+    margin-left: 2%;
+}
+
+.selectConvocatorias {
+    margin: 5%;
+}
+
+.selectConvocatorias select {
+    margin-left: 2%;
+}
+
+.cuadroBusqueda {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    margin: 5%
+}
+
+.guardarConvocatoria {
+    width: 80%;
+    margin: auto;
+
+}
+
+.modal-dialog .form-select {
+    margin-left: 5%;
+    width: 90%;
+}
+
+.imgContainer {
+    width: auto;
+    height: 10vh;
+    overflow: hidden;
+
+}
+
+.imgFutbolista {
+    width: 100%;
+    /* height: auto; */
+}
+
+.tdFoto {
+    width: 10vw;
+}
+
+.imgModal{
+    width: 100%;
+}
+
+#botonEditar{
+    background-color: #00BCD4;
+}
+
+@media (max-width: 1060px) {
+
+    .imgContainer {
+        width: auto;
+        height: 8vh;
+        overflow: hidden;
+
+    }
+
+    .imgFutbolista {
+        width: 100%;
+        /* height: auto; */
+    }
+
+    .tdFoto {
+        width: 8vw;
+    }
+
+    .imgModal{
+        width: 100%;
+    }
+
+    .tdAcciones{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tdAcciones .btn{
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px){
+    .selectConvocatorias{
+        display: flex;
+        justify-content: center;
+    }
+
+    .cuadroBusqueda{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px){
+    #botonEditar{
+        width: 95%;
+        font-size: 0.8rem
+    }
+
+    #botonEliminar{
+        width: 95%;
+        font-size: 0.8rem       
+    }
+    
+    .miThead{
+        /* width: 10%; */
+        font-size: 0.8rem;
+    }
+
+    #tbodyTorneos{
+        font-size: 0.8rem;
+    }
+}

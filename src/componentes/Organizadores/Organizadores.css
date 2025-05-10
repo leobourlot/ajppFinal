@@ -1,0 +1,210 @@
+/*Mobile*/
+@media (max-width: 768px) {
+
+    .contenedorOrganizadores {
+        margin-top: 12vh;
+    }
+
+    .organizadores {
+        margin-top: 12vh;
+    }
+
+    .tablaOrganizadores .acciones button{
+        width: 100%;
+    }
+
+}
+
+
+/*Organizadores*/
+
+.contenedorOrganizadores{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    min-height: 100vh;
+}
+
+.organizadoresMenu {
+    justify-content: space-between;
+    border-bottom: solid 5px #00BCD4;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.organizadoresSection .formOrganizador .campo{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+
+/*tabla*/
+
+.tablaOrganizadores {
+    width: 100%;
+    margin: auto;
+}
+
+.thOrganizadores{
+    background-color: #c3c2c2!important;
+}
+
+.tablaOrganizadores th:nth-child(2) {
+    width: auto;
+}
+
+.tablaOrganizadores th:nth-child(9) {
+    width: auto;
+}
+
+.tablaOrganizadores td input {
+    max-width: auto;
+}
+
+.tablaOrganizadores button {
+    margin-left: 2%;
+}
+
+.tablaOrganizadores .acciones button{
+    width: 100px;
+}
+
+
+/*buscador*/
+
+.tablaOrganizadores .busqueda{
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+.formOrganizador .btn{
+    margin: 0px;
+}
+
+/* .tablaOrganizadores {
+    width: 80%;
+    margin: auto;
+} */
+
+/* .tablaJugadores th:nth-child(2) {
+    width: auto;
+}
+
+.tablaJugadores th:nth-child(9) {
+    width: auto;
+}
+
+.tablaJugadores td input {
+    max-width: auto;
+}
+
+.tablaJugadores button {
+    margin-left: 2%;
+} */
+
+.cuadroBusqueda {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    margin: 5%
+}
+
+.modal-dialog .form-select {
+    margin-left: 5%;
+    width: 90%;
+}
+
+.imgContainer {
+    width: auto;
+    height: 10vh;
+    overflow: hidden;
+
+}
+
+.imgFutbolista {
+    width: 100%;
+    /* height: auto; */
+}
+
+.tdFoto {
+    width: 10vw;
+}
+
+.imgModal{
+    width: 100%;
+}
+
+#botonEditar{
+    background-color: #00BCD4;
+}
+
+@media (max-width: 1060px) {
+
+    .imgContainer {
+        width: auto;
+        height: 8vh;
+        overflow: hidden;
+
+    }
+
+    .imgFutbolista {
+        width: 100%;
+        /* height: auto; */
+    }
+
+    .tdFoto {
+        width: 8vw;
+    }
+
+    .imgModal{
+        width: 100%;
+    }
+
+    .tdAcciones{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tdAcciones .btn{
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px){
+    .selectConvocatorias{
+        display: flex;
+        justify-content: center;
+    }
+
+    .cuadroBusqueda{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px){
+    #botonEditar{
+        width: 95%;
+        font-size: 0.8rem
+    }
+
+    #botonEliminar{
+        width: 95%;
+        font-size: 0.8rem       
+    }
+    
+    .miThead{
+        /* width: 10%; */
+        font-size: 0.8rem;
+    }
+
+    #tbodyOrganizadores{
+        font-size: 0.8rem;
+    }
+}

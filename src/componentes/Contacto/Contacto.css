@@ -1,0 +1,230 @@
+.contenedorContacto {
+    /* background-image: url('../Img/fotoFondo2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; */
+    background: rgb(4, 30, 112);
+    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    height: auto;
+}
+
+.contenedorCard {
+    /* background-color: transparent; */
+    margin-top: 12vh;
+}
+
+.card {
+    background-color: unset !important;
+    border: none !important;
+    color: white;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+}
+
+.card-title {
+    text-align: center !important;
+    color: white !important
+}
+
+.form-label {
+    color: white
+}
+
+#nombreEmpresa {
+    /* background: linear-gradient(rgb(25, 128, 156) 0%,rgba(0,64,82,1) 100%); */
+    width: 100%;
+    padding: 1% 1%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    border-radius: 5px;
+    margin-top: 3vh;
+    text-align: center;
+
+}
+
+/* Datos de contacto */
+
+.container-contacto {
+    width: 100%;
+    /* margin-top: 5vh; */
+}
+
+.container-contacto h1 {
+    width: 100%;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    font-size: 35px;
+    color: white;
+}
+
+.container-contacto h2 {
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    font-size: 35px;
+    color: white;
+    border-top: solid white 1px;
+    padding: 3%
+}
+
+.container-contacto .info-contacto .datos {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+.container-contacto .info-contacto .tituloRedes {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+}
+
+.linksRedes {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: center;
+}
+
+.linksRedes a {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: center;
+}
+
+/* Texto redes */
+
+.container-contacto a {
+    width: 10%;
+}
+
+/* Link redes */
+
+.container-contacto .link-redes {
+    color: #00BCD4;
+}
+
+/* Formulario */
+
+.form-label {
+
+    padding-left: 2rem;
+}
+
+.form-control {
+    margin-left: 2rem;
+    max-width: 90%;
+}
+
+/* Boton enviar */
+
+#boton {
+    font-size: 16px;
+    border: none;
+    outline: 0px;
+    background: #FFDF5A;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 300mx ease;
+    margin-top: 2vh;
+}
+
+#boton:hover {
+    background-color: rgba(0, 64, 82, 1);
+}
+
+.btn {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.container-contacto .info-contacto .datos {
+    margin-bottom: 1.5%;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .contenedorContacto {
+        z-index: 8888;
+    }
+
+    .contenedorCard {
+        margin-top: 15vh !important;
+    }
+
+    .container-contacto{
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    /* .contenedorContacto {
+        height: auto;
+        background-image: url('../Img/fotoFondoMobileNoTexto.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 10vh;
+    } */
+
+    /* .contenedorCard{
+        margin-bottom: 25vh;
+    } */
+}
+
+@media ((min-width: 561px) and (max-width: 769px)) {
+    /* .contenedorContacto {
+        height: auto;
+        background-image: url('../Img/fotoFondoMobileNoTexto.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 10vh;
+    }
+
+    .contenedorCard{
+        margin-bottom: 40vh;
+    } */
+}
+
+@media ((min-width: 769px) and (max-width: 1200px)) {
+    /* .contenedorContacto {
+        height: auto;
+        background-image: url('../Img/fotoFondo1500noTexto.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .contenedorCard{
+        margin-bottom: 30vh;
+    } */
+
+}
+
+@media ((min-width: 1201px) and (max-width: 1500px)) {
+    /* .contenedorContacto {
+        height: auto;
+        background-image: url('../Img/fotoFondo1500noTexto.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .contenedorCard{
+        margin-bottom: 40vh;
+    } */
+
+}

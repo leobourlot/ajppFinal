@@ -1,0 +1,111 @@
+.contenedorAdministrador{
+    height: auto;
+}
+
+.row{
+    align-items: center;
+}
+
+
+
+#cardTorneos{
+    cursor: pointer;
+    height: 20vh;
+    background-color: #052576;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+    /* margin-right: 1%; */
+    
+}
+
+.card .bg-success{
+    --bs-bg-opacity: 0;
+    /* background-color: none!important; */
+}
+
+#cardInscriptos{
+    cursor: pointer;
+    height: 20vh;
+    background-color: #052576;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+
+}
+
+#cardMisTorneos{
+    cursor: pointer;
+    height: 20vh;
+    background-color: #052576;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+
+}
+
+#cardJugadores{
+    cursor: pointer;
+    height: 20vh;
+    background-color: #052576;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+
+}
+
+#cardImagenes{
+    cursor: pointer;
+    height: 20vh;
+    background-color: #052576;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+
+}
+
+#cardNoticias{
+    cursor: pointer;
+    height: 20vh;
+    background-color: #052576;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+
+}
+
+#cardOrganizadores{
+    cursor: pointer;
+    height: 20vh;
+    background-color: #052576;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+
+}
+
+#bienvenida{
+    text-align: center;
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+}
+
+@media (max-width: 768px){
+    .contenedorAdministrador{
+        margin-top: 25%
+    }
+}

@@ -1,0 +1,18 @@
+.contenedorAsociacion{
+    background: rgb(4, 30, 112);
+    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    height: 77vh;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 5vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (max-width: 768px){
+    .contenedorAsociacion{
+        padding-top: 18vh;
+    }
+}
+
+

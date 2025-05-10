@@ -1,0 +1,13 @@
+.sponsors {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: space-around;
+}
+
+@media (max-width: 991px) {
+    .sponsors > div {
+        flex: 0 0 33%; /* Hace que cada logo ocupe 33% del ancho */
+        max-width: 33%;
+    }
+}
+

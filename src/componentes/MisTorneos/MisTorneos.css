@@ -1,0 +1,234 @@
+.contenedorMisTorneos {
+    background: rgb(4, 30, 112);
+    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    height: auto;
+    min-height: 77vh;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+/*Mobile*/
+@media (max-width: 768px) {
+
+    .convocatoria_form {
+        margin-top: 12vh;
+    }
+
+    .convocatoria {
+        margin-top: 12vh;
+    }
+
+    .tablaConvocatoria .acciones button{
+        width: 100%;
+    }
+
+}
+
+
+/*Convocatoria*/
+
+.convocatoria_form{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    min-height: 100vh;
+}
+
+.convocatoria_menu {
+    justify-content: center;
+    border-bottom: solid 5px #00BCD4;
+    color: white;
+    padding-top: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+.convocatoria_section .form_convocatoria .campo{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+
+/*tabla*/
+
+.tablaConvocatoria {
+    width: 70%;
+    margin: auto;
+}
+
+.thTorneos{
+    background-color: #c3c2c2!important;
+}
+
+.tablaConvocatoria th:nth-child(2) {
+    width: auto;
+}
+
+.tablaConvocatoria th:nth-child(9) {
+    width: auto;
+}
+
+.tablaConvocatoria td input {
+    max-width: auto;
+}
+
+.tablaConvocatoria button {
+    margin-left: 2%;
+}
+
+.tablaConvocatoria .acciones button{
+    width: 100px;
+}
+
+
+/*buscador*/
+
+.tablaConvocatoria .busqueda{
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+.form_convocatoria .btn{
+    margin: 0px;
+}
+
+.tablaJugadores {
+    width: 80%;
+    margin: auto;
+}
+
+.tablaJugadores th:nth-child(2) {
+    width: auto;
+}
+
+.tablaJugadores th:nth-child(9) {
+    width: auto;
+}
+
+.tablaJugadores td input {
+    max-width: auto;
+}
+
+.tablaJugadores button {
+    margin-left: 2%;
+}
+
+.selectConvocatorias {
+    margin: 5%;
+}
+
+.selectConvocatorias select {
+    margin-left: 2%;
+}
+
+.cuadroBusqueda {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    margin: 5%
+}
+
+.guardarConvocatoria {
+    width: 80%;
+    margin: auto;
+
+}
+
+.modal-dialog .form-select {
+    margin-left: 5%;
+    width: 90%;
+}
+
+.imgContainer {
+    width: auto;
+    height: 10vh;
+    overflow: hidden;
+
+}
+
+.imgFutbolista {
+    width: 100%;
+    /* height: auto; */
+}
+
+.tdFoto {
+    width: 10vw;
+}
+
+.imgModal{
+    width: 100%;
+}
+
+#botonEditar{
+    background-color: #00BCD4;
+}
+
+@media (max-width: 1060px) {
+
+    .imgContainer {
+        width: auto;
+        height: 8vh;
+        overflow: hidden;
+
+    }
+
+    .imgFutbolista {
+        width: 100%;
+        /* height: auto; */
+    }
+
+    .tdFoto {
+        width: 8vw;
+    }
+
+    .imgModal{
+        width: 100%;
+    }
+
+    .tdAcciones{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tdAcciones .btn{
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px){
+    .selectConvocatorias{
+        display: flex;
+        justify-content: center;
+    }
+
+    .cuadroBusqueda{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px){
+    #botonEditar{
+        width: 95%;
+        font-size: 0.8rem
+    }
+
+    #botonEliminar{
+        width: 95%;
+        font-size: 0.8rem       
+    }
+    
+    .miThead{
+        /* width: 10%; */
+        font-size: 0.8rem;
+    }
+
+    #tbody{
+        font-size: 0.8rem;
+    }
+}

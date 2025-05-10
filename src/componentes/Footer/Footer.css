@@ -1,0 +1,45 @@
+
+footer{
+    background-color: #042240;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    padding: 30px
+
+}
+
+footer p{
+    height: 20px;
+    font-size: 1rem;
+    color: white;
+    padding: 20px;
+    margin-bottom: 1px!important;
+}
+
+footer a i{
+    margin-top: 2vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 10px;
+    color: #FFDF5A;
+}
+
+.p-contacto{
+    margin-bottom: 1px;
+}
+
+.p-datos{
+    margin-bottom: 1px;;
+}
+
+footer .row{
+    height: auto!important;
+}
+
+.containerFooter{
+    min-height: auto!important;
+}
+
+.datosFooter{
+    margin-bottom: 3vh;
+}

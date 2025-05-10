@@ -1,0 +1,69 @@
+.registro-container {
+    background: rgb(4, 30, 112);
+    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+.containerRegistro{
+    display: flex;
+    justify-content: center;
+}
+
+.registro-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+#labelLogin {
+    color: black;
+    padding: 0;
+    margin-bottom: 0!important;
+}
+
+.contenedorBotonRegistrarme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#botonRegistro {
+    margin-left: 0;
+}
+
+@media (max-width: 560px) {
+    .registro-container {
+        margin-top: 13vh;
+
+    }
+}
+
+@media ((min-width: 561px) and (max-width: 769px)) {
+    .registro-container {
+        margin-top: 13vh;
+    }
+}
+
+@media ((min-width: 769px) and (max-width: 1200px)) {
+
+}
+
+@media ((min-width: 1201px) and (max-width: 1500px)) {
+
+}
+
+@media (max-width: 992px) {
+    .containerRegistro {
+        margin-bottom: 7vh;
+
+    }
+}

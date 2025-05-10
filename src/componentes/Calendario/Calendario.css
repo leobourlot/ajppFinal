@@ -1,0 +1,79 @@
+.contenedorCalendario {
+
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: rgb(4, 30, 112);
+    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+}
+
+.calendario {
+    margin-top: 15vh;
+}
+
+.fotoCalendario {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.modal-content {
+    width: 100% !important;
+}
+
+.imgModal {
+    width: 100%;
+}
+
+@media (max-width: 560px) {
+    
+    .fotoCalendario {
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+
+    .modal-content {
+        width: 100% !important;
+        margin-top: 20vh;
+    }
+}
+
+
+
+@media ((min-width: 561px) and (max-width: 769px)) {
+    
+    .fotoCalendario {
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+
+    .modal-content {
+        width: 100% !important;
+        margin-top: 20vh;
+    }
+}
+
+@media ((min-width: 769px) and (max-width: 1200px)) {
+    
+
+    .fotoCalendario {
+        margin-bottom: 5vh;
+    }
+
+    .modal-content {
+        width: 100% !important;
+    }
+
+}
+
+@media ((min-width: 1201px) and (max-width: 1500px)) {
+    
+
+    .fotoCalendario {
+        margin-bottom: 5vh;
+    }
+
+    .modal-content {
+        width: 100% !important;
+    }
+
+}

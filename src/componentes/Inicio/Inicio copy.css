@@ -1,0 +1,199 @@
+/*BANNER*/
+
+.banner-container .banner {
+    background: rgb(4, 30, 112);
+    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 10px #0005;
+    height: auto;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+
+.textoCircuito {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 7rem;
+    text-align: center;
+}
+
+.banner-container .banner .content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner-container .banner .content h3 {
+    color: #fff;
+}
+
+.banner-container .banner .col-4 {
+    display: flex;
+    justify-content: center !important;
+}
+
+.contenedorImagenTorneo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#columnaContenedorTorneo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#torneo1 {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.imagenTorneo {
+    width: 300px;
+    margin-top: 5vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    animation-name: colorImagen;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes colorImagen {
+    0%{
+        box-shadow: 0 0 100px rgb(30, 255, 0);
+
+    }
+    25%{
+        box-shadow: 0 0 100px rgb(0, 225, 255);
+
+    }
+    75%{
+        box-shadow: 0 0 100px rgb(242, 255, 0);
+
+    }
+    100%{
+        box-shadow: 0 0 100px rgb(255, 170, 0);
+
+    }
+}
+
+.contenedorInscripciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.inscripciones {
+    margin-left: 0 !important;
+    background-color: #FFDF5A;
+    margin-top: 3vh;
+}
+
+.btn-outline-dark {
+    background-color: #FFDF5A !important;
+}
+
+#imgModalContainer {
+    display: flex;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgModal {
+    border-radius: 10px;
+}
+
+@media (max-width:768px) {
+
+    .banner-container {
+        height: auto;
+    }
+
+}
+
+@media (max-width: 560px) {
+    .banner-container .banner {
+        margin-top: 10vh;
+    }
+
+    .contenedorImagenTorneo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        width: auto;
+    }
+
+    #imgModalContainer {
+        width: 300px;
+    }
+
+    .banner-container .banner .content {
+        margin-top: 3vh
+    }
+
+    .contenedorInscripciones {
+        margin-bottom: 2vh;
+    }
+
+    .textoCircuito {
+        font-size: 3rem;
+    }
+}
+
+@media ((min-width: 561px) and (max-width: 769px)) {
+    .banner-container .banner {
+        margin-top: 12vh;
+        height: auto;
+    }
+
+    .contenedorImagenTorneo {
+        margin-bottom: 10vh;
+    }
+
+    .contenedorInscripciones {
+        margin-bottom: 10vh;
+    }
+
+    .textoCircuito {
+        font-size: 4rem;
+    }
+
+}
+
+@media ((min-width: 769px) and (max-width: 1200px)) {
+
+    .textoCircuito {
+        font-size: 5rem;
+    }
+
+    .imagenTorneo {
+        /* width: 40%; */
+        margin-bottom: 7vh;
+
+    }
+
+}
+
+@media ((min-width: 1201px) and (max-width: 1500px)) {
+
+
+    .textoCircuito {
+        font-size: 6rem;
+    }
+
+}
+
+/*FIN DE BANNER*/

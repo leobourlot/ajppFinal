@@ -1,0 +1,90 @@
+.contenedorRanking {
+    background: rgb(4, 30, 112);
+    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
+}
+
+#fotoDeRanking {
+    display: flex;
+    justify-content: center;
+}
+
+.tituloRankingCompleto {
+    color: white;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.contenedorFotoRanking {
+    display: flex;
+    justify-content: center;
+}
+
+.fotoRanking {
+    width: 100%;
+}
+
+#fotoRanking{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+#fotoRankingCelular{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.contenedorRankingCompleto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10vh
+}
+
+.rankingCompleto {
+    margin-left: 0;
+    background-color: #FFDF5A;
+    margin-top: 3vh;
+    /* width: 45%; */
+}
+
+.modal-content {
+    width: 100% !important;
+}
+
+.imgModal {
+    width: 100%;
+}
+
+.contenedorRankingCompleto {
+    margin-top: 9vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border-radius: 1000px; */
+}
+
+@media (max-width: 560px) {
+
+    .contenedorRanking {
+        margin-top: 15vh;
+    }
+
+    .rankingCompleto {
+        margin-top: 0
+    }
+}
+
+@media ((min-width: 561px) and (max-width: 769px)) {
+    .contenedorRanking {
+        margin-top: 15vh;
+    }
+}
+
+@media ((min-width: 769px) and (max-width: 1200px)) {}
+
+@media ((min-width: 1201px) and (max-width: 1500px)) {}

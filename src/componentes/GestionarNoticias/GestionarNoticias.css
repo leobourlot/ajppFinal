@@ -1,0 +1,50 @@
+.contenedorGestionNoticias{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    min-height: 100vh;
+}
+
+.gestionNoticiasMenu {
+    justify-content: space-between;
+    border-bottom: solid 5px #00BCD4;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.gestionNoticiasSection .formGestionNoticias .campo{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+
+.fieldsetNoticias{
+    margin: 10px;
+    padding: 10px;
+    border: solid #aaa 2px;
+    border-radius: 10px;
+}
+
+legend{
+    padding: 0 10px
+}
+
+.detailsNuevaNoticia summary{
+    width: 200px;
+    background-color: rgb(231, 199, 17);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 0 2% 0;
+}
+
+@media (max-width: 768px){
+    .contenedorGestionNoticias{
+        font-size: 0.9rem;
+        width: 90%;
+    }
+}
