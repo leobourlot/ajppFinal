@@ -12,11 +12,6 @@ export function Imagenes() {
 
     const baseURL = 'https://api.srv805858.hstgr.cloud';
 
-    const s3 = new S3({
-        accessKeyId: 'AKIA6ODU7PT7KYXRZXZO',
-        secretAccessKey: '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',
-        region: 'eu-north-1'
-    });
 
 
     const [imagen, setImagen] = useState(null);

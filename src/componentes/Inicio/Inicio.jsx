@@ -9,11 +9,7 @@ import './Inicio.css';
 import { useEffect, useState } from "react";
 
 export function Inicio() {
-    // AWS.config.update({
-    //     accessKeyId: 'AKIA6ODU7PT7KYXRZXZO',
-    //     secretAccessKey: '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',
-    //     region: 'eu-north-1'
-    // });
+    
 
     const [fotoSeleccionada, setFotoSeleccionada] = useState(null);
     const [subtituloModal, setSubtituloModal] = useState("");

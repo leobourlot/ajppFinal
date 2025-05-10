@@ -86,11 +86,7 @@ export function GestionarNoticias() {
         }
     };
 
-    const s3 = new S3({
-        accessKeyId: 'AKIA6ODU7PT7KYXRZXZO',
-        secretAccessKey: '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',
-        region: 'eu-north-1'
-    });
+    
 
     // const handleImagenChange = async (index, event) => {
     //     const archivo = event.target.files[0];
