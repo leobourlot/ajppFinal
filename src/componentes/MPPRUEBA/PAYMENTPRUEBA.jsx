@@ -15,12 +15,12 @@ export function PAYMENTPRUEBA({ onPaymentApproved, onPaymentReceived }) {
             secure: true
         }); // Ajusta la URL a la de tu servidor
         socket.on('connect', () => {
-            console.log('Conectado a Socket.IO:', socket.id);
+            // console.log('Conectado a Socket.IO:', socket.id);
             setConnected(true);
         });
 
         socket.on('paymentApproved', (data) => {
-            console.log('Evento paymentApproved recibido:', data);
+            // console.log('Evento paymentApproved recibido:', data);
             // Notifica al componente padre o actualiza el estado local
             if (onPaymentApproved) {
                 onPaymentApproved(data);
@@ -28,7 +28,7 @@ export function PAYMENTPRUEBA({ onPaymentApproved, onPaymentReceived }) {
         });
 
         socket.on('disconnect', () => {
-            console.log('Desconectado de Socket.IO');
+            // console.log('Desconectado de Socket.IO');
             setConnected(false);
         });
 

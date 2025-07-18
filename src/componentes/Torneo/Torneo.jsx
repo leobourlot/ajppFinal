@@ -191,7 +191,7 @@ export function Torneo() {
 
             .then(resp => {
                 const organizadoresData = resp.data.dato;
-                console.log('organizadoresData es: ', organizadoresData)
+                // console.log('organizadoresData es: ', organizadoresData)
                 setOrganizadores(organizadoresData);
 
             })
@@ -242,7 +242,7 @@ export function Torneo() {
                     console.log(error);
                 });
         } else {
-            console.log('torneo antes de crear es: ', torneo)
+            // console.log('torneo antes de crear es: ', torneo)
             // console.log('torneo en el form antes del post es: ', torneo)
             axios.post(baseURL + '/api/v1/torneo/nuevo', { fechaInicio: torneo.fechaInicio, fechaFinal: torneo.fechaFinal, ciudad: torneo.ciudad, provincia: torneo.provincia, organizador: torneo.organizador, costoInscripcion: torneo.costoInscripcion, formaPago: torneo.formaPago }, {
                 headers: {

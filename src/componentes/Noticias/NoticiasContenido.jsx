@@ -28,7 +28,7 @@ export function NoticiasContenido() {
             // console.log('resp.data.dato es: ', resp.data.dato);
             const noticiaData = resp.data.dato;
 
-            console.log('noticiaData es: ', noticiaData)
+            // console.log('noticiaData es: ', noticiaData)
             // console.log('noticiasData.imagenes es: ', noticiaData[0].imagenes)
             // console.log('noticiasData.contenidos es: ', noticiaData[0].contenidos)
             // console.log('noticiasData.descripcionesImagenes es: ', noticiaData[0].descripcionesImagenes)

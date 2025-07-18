@@ -30,10 +30,10 @@ export function InscripcionPrueba() {
     useEffect(() => {
         buscarTorneos();
 
-        console.log('paymentaproved es: ', paymentApproved)
+        // console.log('paymentaproved es: ', paymentApproved)
 
         if (torneoSeleccionado) {
-            console.log('torneoSeleccionado es: ', torneoSeleccionado);
+            // console.log('torneoSeleccionado es: ', torneoSeleccionado);
             // console.log('idJugador es: ', userData.user.idJugador)
         } else {
             console.log('ningun torneo seleccionado');
@@ -96,7 +96,7 @@ export function InscripcionPrueba() {
     };
 
     useEffect(() => {
-        console.log('paymentApproved actualizado:', paymentApproved);
+        // console.log('paymentApproved actualizado:', paymentApproved);
     }, [paymentApproved]);
 
     const consultarDni = async () => {
@@ -233,17 +233,17 @@ export function InscripcionPrueba() {
     };
 
     const handlePaymentApproved = (data) => {
-        console.log('Pago aprobado recibido:', data);
+        // console.log('Pago aprobado recibido:', data);
         setPaymentApproved(true);
     };
 
     const obtenerKey = async () => {
 
         if (!torneoSeleccionado || !torneoSeleccionado.idOrganizador) {
-            console.log('No se tiene el idOrganizador');
+            // console.log('No se tiene el idOrganizador');
             return;
         }
-        console.log('idOrganizador antes del get es: ', torneoSeleccionado.idOrganizador);
+        // console.log('idOrganizador antes del get es: ', torneoSeleccionado.idOrganizador);
 
         axios.get(baseURL + '/api/v1/organizador/' + torneoSeleccionado.idOrganizador, {
             headers: {
@@ -252,9 +252,9 @@ export function InscripcionPrueba() {
         })
             .then(resp => {
                 const organizador = resp.data.dato
-                console.log('organizador es: ', organizador)
+                // console.log('organizador es: ', organizador)
                 setPublicKey(organizador[0].public_key);
-                console.log('publicKey es: ', organizador[0].public_key)
+                // console.log('publicKey es: ', organizador[0].public_key)
 
 
                 // setPublicKey(public_key);

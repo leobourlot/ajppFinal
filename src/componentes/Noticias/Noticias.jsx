@@ -35,7 +35,7 @@ export function Noticias() {
                 }
             });
             const nuevasNoticias = response.data.dato;
-            console.log('noticias es: ', nuevasNoticias)
+            // console.log('noticias es: ', nuevasNoticias)
             
             if (nuevasNoticias.length > 0) {
                 setNoticias(prevNoticias => {

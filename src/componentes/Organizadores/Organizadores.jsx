@@ -202,7 +202,7 @@ export function Organizadores() {
                 .then(resp => {
                     // La respuesta contiene la propiedad authorizationUrl
                     const link = resp.data.authorizationUrl;
-                    console.log("Link recibido:", link);
+                    // console.log("Link recibido:", link);
                     // Aquí puedes actualizar el estado para mostrar el link en el formulario
                     setLinkMP(link)
                 })

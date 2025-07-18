@@ -165,7 +165,7 @@ export function Imagenes() {
         if (!imagen) {
             return alert('Seleccioná un pdf primero');
         }
-        console.log('imagen es: ', imagen)
+        // console.log('imagen es: ', imagen)
 
         const formData = new FormData();
         // El campo 'foto' coincide con upload.single('foto') en tu backend
@@ -173,7 +173,7 @@ export function Imagenes() {
 
         for (let [k, v] of formData.entries()) console.log(k, v);
 
-        console.log('formData es: ', formData)
+        // console.log('formData es: ', formData)
         try {
             // Ajusta esta URL si tu backend corre en otro host/prefijo
             const resp = await axios.post(baseURL + '/api/v1/archivo/rankingPdf',

@@ -1,14 +1,8 @@
 // propio de reactjs
 import { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext/UserContext';
 import { Button, Form, Table, Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-// import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import { SponsorsProp } from '../Props/sponsorsProp'
 import Pagination from 'react-bootstrap/Pagination';
-import { S3 } from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid'; // Importa uuid para generar identificadores únicos
 
 import axios from 'axios';
@@ -23,10 +17,16 @@ export function GestionarNoticias() {
         titulo: '',
         descripcion: '',
         imagenes: Array(10).fill(''),  // Array para 10 imágenes
+        // imagenes: [],                // aquí guardaremos las URLs devueltas
+        // descripcionesImagenes: [],
+        // contenidos: [],
         descripcionesImagenes: Array(10).fill(''),  // Array para 10 descripciones de imágenes
         contenidos: Array(5).fill(''),  // Array para 5 contenidos
         creador: userData.user.nombre + ' ' + userData.user.apellido
     });
+
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [uploading, setUploading] = useState(false);
 
     const [showModalEditar, setShowModalEditar] = useState(false);
     const [busqueda, setBusqueda] = useState('');
@@ -34,6 +34,15 @@ export function GestionarNoticias() {
     const [imagen, setImagen] = useState(null);  // Estado para la imagen
     const [imagenCargada, setImagenCargada] = useState(false); // Estado para verificar si la imagen se cargó
 
+
+    const [titulo, setTitulo] = useState('');
+    const [descripcion, setDescripcion] = useState('');
+    // const [descripcionesImagenes, setDescripcionesImagenes] = useState(Array(10).fill(''));
+    const [contenidos, setContenidos] = useState(Array(5).fill(''));
+    // const [archivos, setArchivos] = useState([]);       // File[]
+    const [submitting, setSubmitting] = useState(false);
+    const [archivos, setArchivos] = useState(Array(10).fill(undefined));
+    const [descripcionesImagenes, setDescripcionesImagenes] = useState(Array(10).fill(''));
     // const baseURL = 'http://localhost:3005';
     // const baseURL = 'https://servidorajpp.onrender.com';
     // const baseURL = 'https://servidorajpp.eu-north-1.elasticbeanstalk.com';
@@ -86,7 +95,78 @@ export function GestionarNoticias() {
         }
     };
 
-    
+    // const handleFilesChange = e => {
+    //     const files = Array.from(e.target.files).slice(0, 10); // máximo 10
+    //     setSelectedFiles(files);
+    // };
+
+    // // Sube los archivos al servidor y guarda las URLs en nuevaNoticia.imagenes
+    // const uploadImages = async () => {
+    //     if (selectedFiles.length === 0) {
+    //         return alert('Seleccioná al menos una imagen.');
+    //     }
+    //     setUploading(true);
+    //     const formData = new FormData();
+    //     selectedFiles.forEach(file => formData.append('archivos', file));
+    //     try {
+    //         const resp = await axios.post(
+    //             `${baseURL}/api/v1/archivo/imagenesNoticias`,
+    //             formData,
+    //             {
+    //                 headers: { 'Content-Type': 'multipart/form-data' },
+    //                 timeout: 120000
+    //             }
+    //         );
+    //         // el controlador te devolverá { urls: [ '/archivos/imagenesNoticias/abc.png', ... ] }
+    //         setNuevaNoticia(prev => ({
+    //             ...prev,
+    //             imagenes: resp.data.urls
+    //         }));
+    //         alert('Imágenes subidas correctamente.');
+    //     } catch (err) {
+    //         console.error(err);
+    //         alert('Error subiendo imágenes.');
+    //     } finally {
+    //         setUploading(false);
+    //     }
+    // };
+
+    // // Envía el formulario completo para crear la noticia
+    // const handleSubmit = async e => {
+    //     e.preventDefault();
+    //     if (!nuevaNoticia.titulo || !nuevaNoticia.descripcion || nuevaNoticia.imagenes.length === 0) {
+    //         return (
+    //         console.log('nuevaNoticia:', nuevaNoticia),
+    //         alert('Completá todos los campos y subí las imágenes primero.'))
+    //     }
+    //     try {
+    //         console.log('Nueva noticia a enviar:', nuevaNoticia);
+    //         await axios.post(
+    //             `${baseURL}/api/v1/noticia/nueva`,
+    //             nuevaNoticia,
+    //             {
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                     'Authorization': `Bearer ${userData.token}`
+    //                 }
+    //             }
+    //         );
+    //         alert('Noticia creada con éxito.');
+    //         // reset
+    //         setNuevaNoticia({
+    //             titulo: '',
+    //             descripcion: '',
+    //             imagenes: [],
+    //             descripcionesImagenes: [],
+    //             contenidos: [],
+    //             creador: `${userData.user.nombre} ${userData.user.apellido}`
+    //         });
+    //         setSelectedFiles([]);
+    //     } catch (err) {
+    //         console.error(err);
+    //         alert('Error creando la noticia.');
+    //     }
+    // };
 
     // const handleImagenChange = async (index, event) => {
     //     const archivo = event.target.files[0];
@@ -123,68 +203,101 @@ export function GestionarNoticias() {
     //     }
     // };
 
-    const handleImagenChange = async (index, event) => {
-        const archivo = event.target.files[0];
-        setImagen(archivo);
-        setImagenCargada(false); // Reset imagen cargada
+    // const handleImagenChange = async (index, event) => {
+    //     const archivo = event.target.files[0];
+    //     setImagen(archivo);
+    //     setImagenCargada(false); // Reset imagen cargada
 
 
-        if (!archivo) {
-            alert('No se ha seleccionado ninguna imagen.');
-            return;
-        }
+    //     if (!archivo) {
+    //         alert('No se ha seleccionado ninguna imagen.');
+    //         return;
+    //     }
 
-        const uniqueFileName = `imagenesNoticias/${uuidv4()}.png`;  // Genera un nombre único para la imagen
+    //     const uniqueFileName = `imagenesNoticias/${uuidv4()}.png`;  // Genera un nombre único para la imagen
 
-        const params = {
-            Bucket: 'ajpp',
-            Key: uniqueFileName,
-            Body: archivo
-        };
+    //     const params = {
+    //         Bucket: 'ajpp',
+    //         Key: uniqueFileName,
+    //         Body: archivo
+    //     };
 
-        try {
-            await s3.putObject(params).promise();
-            const imageUrl = `https://${params.Bucket}.s3.${s3.config.region}.amazonaws.com/${params.Key}`;
-            setNuevaNoticia(prevState => {
-                const nuevasImagenes = [...prevState.imagenes];
-                nuevasImagenes[index] = imageUrl;
-                return { ...prevState, imagenes: nuevasImagenes };
-            });
-            setImagenCargada(true); // Marca que la imagen ha sido cargada
-            alert('Imagen cargada exitosamente.');
-        } catch (err) {
-            console.error('Error al cargar la imagen:', err);
-            alert('Error al cargar la imagen.');
-        }
-    };
-    
-    const handleContenidoChange = (index, event) => {
-        const { value } = event.target;
-        setNuevaNoticia(prevState => {
-            const nuevosContenidos = [...prevState.contenidos];
-            nuevosContenidos[index] = value;
-            return { ...prevState, contenidos: nuevosContenidos };
-        });
-    };
+    //     try {
+    //         await s3.putObject(params).promise();
+    //         const imageUrl = `https://${params.Bucket}.s3.${s3.config.region}.amazonaws.com/${params.Key}`;
+    //         setNuevaNoticia(prevState => {
+    //             const nuevasImagenes = [...prevState.imagenes];
+    //             nuevasImagenes[index] = imageUrl;
+    //             return { ...prevState, imagenes: nuevasImagenes };
+    //         });
+    //         setImagenCargada(true); // Marca que la imagen ha sido cargada
+    //         alert('Imagen cargada exitosamente.');
+    //     } catch (err) {
+    //         console.error('Error al cargar la imagen:', err);
+    //         alert('Error al cargar la imagen.');
+    //     }
+    // };
 
-    const guardarNoticia = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post(`${baseURL}/api/v1/noticia/nueva`, nuevaNoticia);
-            setNuevaNoticia({
-                titulo: '',
-                descripcion: '',
-                imagenes: Array(10).fill(''),
-                descripcionesImagenes: Array(10).fill(''),
-                contenidos: Array(5).fill('')
-            });
-            // setImagen(null);
-            // setImagenCargada(false);
-            buscarNoticias(); // Fetch updated list of noticias
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    // const handleImagenChange = async (index, event) => {
+    //     const archivo = event.target.files[0];
+    //     if (!archivo) {
+    //         alert('No se ha seleccionado ninguna imagen.');
+    //         return;
+    //     }
+
+    //     const formData = new FormData();
+    //     formData.append('archivo', archivo);
+
+    //     try {
+    //         const respuesta = await axios.post(`${baseURL}/api/v1/noticia/subirImagen`, formData, {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data',
+    //             },
+    //         });
+
+    //         const imageUrl = respuesta.data.url; // Ruta de la imagen devuelta por el backend
+
+    //         setNuevaNoticia(prevState => {
+    //             const nuevasImagenes = [...prevState.imagenes];
+    //             nuevasImagenes[index] = imageUrl;
+    //             return { ...prevState, imagenes: nuevasImagenes };
+    //         });
+
+    //         setImagenCargada(true);
+    //         alert('Imagen cargada exitosamente.');
+    //     } catch (error) {
+    //         console.error('Error al subir la imagen:', error);
+    //         alert('Error al subir la imagen.');
+    //     }
+    // };
+
+    // const handleContenidoChange = (index, event) => {
+    //     const { value } = event.target;
+    //     setNuevaNoticia(prevState => {
+    //         const nuevosContenidos = [...prevState.contenidos];
+    //         nuevosContenidos[index] = value;
+    //         return { ...prevState, contenidos: nuevosContenidos };
+    //     });
+    // };
+
+    // const guardarNoticia = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         await axios.post(`${baseURL}/api/v1/noticia/nueva`, nuevaNoticia);
+    //         setNuevaNoticia({
+    //             titulo: '',
+    //             descripcion: '',
+    //             imagenes: Array(10).fill(''),
+    //             descripcionesImagenes: Array(10).fill(''),
+    //             contenidos: Array(5).fill('')
+    //         });
+    //         // setImagen(null);
+    //         // setImagenCargada(false);
+    //         buscarNoticias(); // Fetch updated list of noticias
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     const eliminarNoticia = async (idNoticia) => {
         const confirmacion = window.confirm('¿Está seguro que desea eliminar la noticia seleccionada?');
@@ -199,85 +312,184 @@ export function GestionarNoticias() {
         }
     };
 
-    const cerrarModalEditar = () => {
-        setShowModalEditar(false);
-        setNoticiaSeleccionada(null);
-    }
+    // const cerrarModalEditar = () => {
+    //     setShowModalEditar(false);
+    //     setNoticiaSeleccionada(null);
+    // }
 
-    const verModalEditar = (noticia) => {
-        // console.log(noticia);
-        // console.log(futbolista.posicion)
-        // console.log(futbolista.pieHabil)
-        setNoticiaSeleccionada(noticia)
-        setShowModalEditar(true);
-        setImagenCargada(false); // Reinicia el estado de la carga de imagen
+    // const verModalEditar = (noticia) => {
+    //     // console.log(noticia);
+    //     // console.log(futbolista.posicion)
+    //     // console.log(futbolista.pieHabil)
+    //     setNoticiaSeleccionada(noticia)
+    //     setShowModalEditar(true);
+    //     setImagenCargada(false); // Reinicia el estado de la carga de imagen
+    // };
+
+    // const actualizaciónNoticiaSeleccionada = (e) => {
+    //     const { name, value } = e.target;
+    //     setNoticiaSeleccionada(prevState => ({
+    //         ...prevState,
+    //         [name]: value
+    //     }));
+    // };
+
+    // const handleImagenChangeEditar = async (event) => {
+    //     const archivo = event.target.files[0];
+    //     setImagen(archivo); // Actualiza el estado de la imagen seleccionada
+
+    //     if (!archivo) {
+    //         alert('No se ha seleccionado ninguna imagen.');
+    //         return;
+    //     }
+
+    //     const uniqueFileName = `imagenesNoticias/${uuidv4()}.png`;  // Genera un nombre único para la imagen
+
+    //     const params = {
+    //         Bucket: 'ajpp',
+    //         Key: uniqueFileName,
+    //         Body: archivo
+    //     };
+
+    //     try {
+    //         await s3.putObject(params).promise();
+    //         const imageUrl = `https://${params.Bucket}.s3.${s3.config.region}.amazonaws.com/${params.Key}`;
+
+    //         // Actualiza la noticia seleccionada con la nueva URL de la imagen
+    //         setNoticiaSeleccionada(prevState => ({ ...prevState, urlImagen: imageUrl }));
+    //         setImagenCargada(true); // Indica que la imagen ha sido cargada
+    //         alert('Imagen cargada exitosamente.');
+    //     } catch (err) {
+    //         console.error('Error al cargar la imagen:', err);
+    //         alert('Error al cargar la imagen.');
+    //     }
+    // };
+
+    // const editarNoticia = async (e) => {
+    //     e.preventDefault();
+    //     // console.log('noticiaSeleccionada antes de editar es: ', noticiaSeleccionada)
+    //     // const noticia = { ...noticiaSeleccionada }; // Copiamos el estado para asegurar que es el actualizado
+    //     // console.log('noticiaSeleccionada antes de editar es: ', noticia[0]);
+
+    //     if (!imagenCargada) {
+    //         alert('Espere a que la imagen termine de cargar.');
+    //         return;
+    //     }
+
+    //     axios.put(baseURL + '/api/v1/noticia/modificar/' + noticiaSeleccionada.idNoticia, noticiaSeleccionada, {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${userData.token}`
+    //         }
+    //     })
+    //         .then(resp => {
+    //             // console.log(resp.data.msj);
+    //             cerrarModalEditar();
+    //             buscarNoticias();
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }
+
+    // const handleFilesChange = e => {
+    //     const files = Array.from(e.target.files).slice(0, 10);
+    //     setArchivos(files);
+    // };
+
+    const handleFilesChange = (idx, file) => {
+        // console.log('handleFileChange ► idx=', idx, 'file=', file);
+        if (!file) return;
+        setArchivos(prev => {
+            const copia = [...prev];
+            copia[idx] = file;
+            // guarda el File en su posición
+            return copia;
+        });
+        // console.log('copia es:', copia)
+        // console.log('archivbos es: ', archivos)
     };
 
-    const actualizaciónNoticiaSeleccionada = (e) => {
-        const { name, value } = e.target;
-        setNoticiaSeleccionada(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+    const handleDescripcionImagen = (idx, val) => {
+        const arr = [...descripcionesImagenes];
+        arr[idx] = val;
+        setDescripcionesImagenes(arr);
     };
 
-    const handleImagenChangeEditar = async (event) => {
-        const archivo = event.target.files[0];
-        setImagen(archivo); // Actualiza el estado de la imagen seleccionada
-
-        if (!archivo) {
-            alert('No se ha seleccionado ninguna imagen.');
-            return;
-        }
-
-        const uniqueFileName = `imagenesNoticias/${uuidv4()}.png`;  // Genera un nombre único para la imagen
-
-        const params = {
-            Bucket: 'ajpp',
-            Key: uniqueFileName,
-            Body: archivo
-        };
-
-        try {
-            await s3.putObject(params).promise();
-            const imageUrl = `https://${params.Bucket}.s3.${s3.config.region}.amazonaws.com/${params.Key}`;
-
-            // Actualiza la noticia seleccionada con la nueva URL de la imagen
-            setNoticiaSeleccionada(prevState => ({ ...prevState, urlImagen: imageUrl }));
-            setImagenCargada(true); // Indica que la imagen ha sido cargada
-            alert('Imagen cargada exitosamente.');
-        } catch (err) {
-            console.error('Error al cargar la imagen:', err);
-            alert('Error al cargar la imagen.');
-        }
+    const handleContenido = (idx, val) => {
+        const arr = [...contenidos];
+        arr[idx] = val;
+        setContenidos(arr);
     };
 
-    const editarNoticia = async (e) => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        // console.log('noticiaSeleccionada antes de editar es: ', noticiaSeleccionada)
-        // const noticia = { ...noticiaSeleccionada }; // Copiamos el estado para asegurar que es el actualizado
-        // console.log('noticiaSeleccionada antes de editar es: ', noticia[0]);
 
-        if (!imagenCargada) {
-            alert('Espere a que la imagen termine de cargar.');
-            return;
+        if (!titulo || !descripcion) {
+            return alert('Título y descripción obligatorios');
         }
+        // if (archivos.length === 0) {
+        //     return alert('Seleccioná al menos una imagen en archivos');
+        // }
 
-        axios.put(baseURL + '/api/v1/noticia/modificar/' + noticiaSeleccionada.idNoticia, noticiaSeleccionada, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${userData.token}`
-            }
-        })
-            .then(resp => {
-                // console.log(resp.data.msj);
-                cerrarModalEditar();
-                buscarNoticias();
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+        // filtra únicamente los inputs donde el usuario seleccionó un archivo
+        const filesToUpload = archivos.filter(f => f instanceof File);
+        if (filesToUpload.length === 0) return alert('Seleccioná al menos una imagen en filestoupload');
+
+        setSubmitting(true);
+        try {
+            // 1) Subir todas las imágenes al VPS
+            const uploadData = new FormData();
+            filesToUpload.forEach(file => uploadData.append('archivos', file));
+            // console.log('uploadData:', uploadData);
+            // console.log('filestoupload:', filesToUpload);
+            // console.log('archivos:', archivos);
+            const uploadRes = await axios.post(
+                `${baseURL}/api/v1/archivo/imagenesNoticias`,
+                uploadData,
+                {
+                    headers: { 'Content-Type': 'multipart/form-data' },
+                    timeout: 120000,
+                }
+            );
+            const urls = uploadRes.data.urls; // ej: ["/archivos/imagenesNoticias/uuid1.png", ...]
+            // console.log('URLs de imágenes subidas:', urls);
+            // 2) Crear la noticia con esas URLs
+            const payload = {
+                titulo,
+                descripcion,
+                imagenes: urls,
+                descripcionesImagenes,
+                contenidos,
+                creador: `${userData.user.nombre} ${userData.user.apellido}`
+            };
+            // console.log('Payload a enviar:', payload);
+            await axios.post(
+                `${baseURL}/api/v1/noticia/nueva`,
+                payload,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${userData.token}`
+                    }
+                }
+            );
+
+            alert('Noticia creada con éxito');
+            // resetear form
+            setTitulo('');
+            setDescripcion('');
+            setDescripcionesImagenes(Array(10).fill(''));
+            setContenidos(Array(5).fill(''));
+            setArchivos([]);
+            buscarNoticias()
+        } catch (err) {
+            console.error(err);
+            alert('Ocurrió un error al crear la noticia');
+        } finally {
+            setSubmitting(false);
+        }
+    };
 
     return (
         <>
@@ -292,7 +504,7 @@ export function GestionarNoticias() {
                         <h2>Completar formulario para agregar una nueva noticia</h2>
                         <br />
                         <div className="formGestionNoticias">
-                            <form onSubmit={guardarNoticia}>
+                            <form onSubmit={handleSubmit}>
                                 <fieldset className='fieldsetNoticias'>
                                     <legend>Título y descripción</legend>
                                     <div className="form-group">
@@ -301,8 +513,10 @@ export function GestionarNoticias() {
                                             type="text"
                                             name="titulo"
                                             className="campo"
-                                            value={nuevaNoticia.titulo}
-                                            onChange={(e) => setNuevaNoticia({ ...nuevaNoticia, titulo: e.target.value })}
+                                            // value={nuevaNoticia.titulo}
+                                            // onChange={(e) => setNuevaNoticia({ ...nuevaNoticia, titulo: e.target.value })}
+                                            value={titulo}
+                                            onChange={e => setTitulo(e.target.value)}
                                             required
                                         />
                                     </div>
@@ -310,55 +524,60 @@ export function GestionarNoticias() {
                                         <label>Descripción</label>
                                         <textarea
                                             name="descripcion"
-                                            value={nuevaNoticia.descripcion}
+                                            // value={nuevaNoticia.descripcion}
                                             className="campo"
-                                            onChange={(e) => setNuevaNoticia({ ...nuevaNoticia, descripcion: e.target.value })}
+                                            // onChange={(e) => setNuevaNoticia({ ...nuevaNoticia, descripcion: e.target.value })}
+                                            value={descripcion}
+                                            onChange={e => setDescripcion(e.target.value)}
                                             required
                                         ></textarea>
                                     </div>
                                 </fieldset>
-                                {[...Array(10)].map((_, index) => (
-                                    <div className="form-group" key={index}>
+                                {[...Array(10)].map((_, idx) => (
+                                    <div className="form-group" key={idx}>
                                         <fieldset className='fieldsetNoticias'>
-                                            <legend>Imagen y descripción {index + 1}</legend>
-                                            <label>Imagen {index + 1}</label>
+                                            <legend>Imagen y descripción {idx + 1}</legend>
+                                            <label>Imagen {idx + 1}</label>
                                             <input
                                                 type="file"
-                                                accept=".png"
-                                                className="campo"
-                                                onChange={(e) => handleImagenChange(index, e)}
+                                                accept=".png,.jpg,.jpeg"
+                                                multiple
+                                                onChange={e => handleFilesChange(idx, e.target.files[0])}
                                             />
-                                            <label>Descripción de la Imagen {index + 1}</label>
+                                            <label>Descripción de la Imagen {idx + 1}</label>
                                             <textarea
-                                                name={`descripcionImagen${index}`}
-                                                value={nuevaNoticia.descripcionesImagenes[index]}
-                                                className="campo"
-                                                onChange={(e) => {
-                                                    const nuevasDescripciones = [...nuevaNoticia.descripcionesImagenes];
-                                                    nuevasDescripciones[index] = e.target.value;
-                                                    setNuevaNoticia({ ...nuevaNoticia, descripcionesImagenes: nuevasDescripciones });
-                                                }}
+                                                name={`descripcionImagen${idx}`}
+                                                // value={nuevaNoticia.descripcionesImagenes[index]}
+                                                value={descripcionesImagenes[idx]}
 
+                                                className="campo"
+                                                // onChange={(e) => {
+                                                //     const nuevasDescripciones = [...nuevaNoticia.descripcionesImagenes];
+                                                //     nuevasDescripciones[index] = e.target.value;
+                                                //     setNuevaNoticia({ ...nuevaNoticia, descripcionesImagenes: nuevasDescripciones });
+                                                // }}
+                                                onChange={e => handleDescripcionImagen(idx, e.target.value)}
                                             ></textarea>
                                         </fieldset>
                                     </div>
                                 ))}
                                 <fieldset className='fieldsetNoticias'>
                                     <legend>Párrafos</legend>
-                                    {[...Array(5)].map((_, index) => (
-                                        <div className="form-group" key={index}>
-                                            <label>Párrafo {index + 1}</label>
+                                    {[...Array(5)].map((_, idx) => (
+                                        <div className="form-group" key={idx}>
+                                            <label>Párrafo {idx + 1}</label>
                                             <textarea
-                                                name={`contenido${index}`}
-                                                value={nuevaNoticia.contenidos[index]}
+                                                name={`contenido${idx}`}
+                                                // value={nuevaNoticia.contenidos[index]}
+                                                value={contenidos[idx]}
                                                 className="campo"
-                                                onChange={(e) => handleContenidoChange(index, e)}
-
+                                                // onChange={(e) => handleContenidoChange(index, e)}
+                                                onChange={e => handleContenido(idx, e.target.value)}
                                             ></textarea>
                                         </div>
                                     ))}
                                 </fieldset>
-                                <button type="submit" className="btn btn-outline-dark" disabled={!imagenCargada}>Agregar Noticia</button>
+                                <button type="submit" className="btn btn-outline-dark" disabled={!selectedFiles}>Agregar Noticia</button>
                             </form>
 
                         </div>
@@ -404,9 +623,9 @@ export function GestionarNoticias() {
                                                 <td>{new Date(item.fecha).toLocaleDateString('es-ES')}</td>
                                                 <td className="acciones">
 
-                                                    <Button id='botonEditar' variant="success" onClick={() => verModalEditar(item)} className='btn-sm'>
+                                                    {/* <Button id='botonEditar' variant="success" onClick={() => verModalEditar(item)} className='btn-sm'>
                                                         Editar
-                                                    </Button>
+                                                    </Button> */}
 
                                                     <Button id='botonEliminar' variant="danger" onClick={() => eliminarNoticia(item)} className='btn-sm'>
                                                         Eliminar
@@ -427,7 +646,7 @@ export function GestionarNoticias() {
 
 
                 </div>
-                <Modal show={showModalEditar} onHide={cerrarModalEditar}>
+                {/* <Modal show={showModalEditar} onHide={cerrarModalEditar}>
                     <Modal.Header closeButton>
                         <Modal.Title>Editar noticia</Modal.Title>
                     </Modal.Header>
@@ -500,7 +719,7 @@ export function GestionarNoticias() {
                         )}
 
                     </Modal.Body>
-                </Modal>
+                </Modal> */}
             </div>
 
         </>

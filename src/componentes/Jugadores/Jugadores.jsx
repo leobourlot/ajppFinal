@@ -131,7 +131,7 @@ export function Jugadores() {
     }
 
     const verModalEditar = (jugador) => {
-        console.log(jugador);
+        // console.log(jugador);
         // console.log(futbolista.posicion)
         // console.log(futbolista.pieHabil)
         setJugadorSeleccionado(jugador)

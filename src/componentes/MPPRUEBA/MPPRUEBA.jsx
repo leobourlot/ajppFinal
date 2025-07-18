@@ -15,7 +15,7 @@ export function MPPRUEBA({ idTorneo, idOrganizador, public_key }) {
     useEffect(() => {
         if (public_key) {
             initMercadoPago(public_key);
-            console.log('SDK inicializado con public_key: ' + public_key);
+            // console.log('SDK inicializado con public_key: ' + public_key);
         }
     }, [public_key]);
     
@@ -23,13 +23,13 @@ export function MPPRUEBA({ idTorneo, idOrganizador, public_key }) {
     useEffect(() => {
         const crearOrden = async () => {
             try {
-                console.log('idTorneo en checkout es :', idTorneo)
-                console.log('idOrganizador en checkout es :', idOrganizador)
-                console.log('public_key en checkout es: '.public_key)
+                // console.log('idTorneo en checkout es :', idTorneo)
+                // console.log('idOrganizador en checkout es :', idOrganizador)
+                // console.log('public_key en checkout es: '.public_key)
                 const response = await axios.post(`${baseURL}/api/v1/pagos/crearOrden`, { idTorneo, idOrganizador });
                 // Asumiendo que tu backend retorna { id: <preferenceId> }
                 const id = response.data.id;
-                console.log('Preference ID:', id);
+                // console.log('Preference ID:', id);
                 setPreferenceId(id);
             } catch (error) {
                 console.error("Error al crear la preferencia:", error);
@@ -53,7 +53,7 @@ export function MPPRUEBA({ idTorneo, idOrganizador, public_key }) {
                         initialization={{ preferenceId, redirectMode: 'blank' }}
                         customization={customization}
                         onSubmit={(data) => {
-                            console.log("Datos de retorno:", data);
+                            // console.log("Datos de retorno:", data);
                             // Aquí puedes manejar los datos de retorno del checkout
                         }}
                     />

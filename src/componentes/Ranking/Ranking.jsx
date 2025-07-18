@@ -19,7 +19,7 @@ export function Ranking() {
 
     // const urlRankingCompleto = 'https://ajpp.s3.eu-north-1.amazonaws.com/rankingCompleto.pdf';
     const baseURL = 'https://api.srv805858.hstgr.cloud';
-    const urlRankingCompleto = `${baseURL}/rankingCompleto.pdf`;
+    const urlRankingCompleto = `${baseURL}/archivos/rankingCompleto.pdf`;
 
     const clicEnlacePdf = () => {
         abrirPdf(urlRankingCompleto);
