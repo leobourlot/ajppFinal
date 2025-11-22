@@ -32,6 +32,28 @@ footer a i{
     margin-bottom: 1px;;
 }
 
+.p-footer-creador{
+    padding-bottom: 5px;
+    color:#8eb7ef;
+    text-shadow: 1px 1px 2px black;
+    
+}
+.p-footer-creador a{
+    color:#8eb7ef;
+    /* text-decoration: underline; */
+    /* background-color: #07498b; */
+    border-radius: 10px;
+    /* padding-left: 5px; */
+    /* padding-right: 5px; */
+}
+
+.logoBourder{
+    width: 2rem;
+    height: 2rem;
+    display: inline;
+    border-radius: 10px;
+}
+
 footer .row{
     height: auto!important;
 }

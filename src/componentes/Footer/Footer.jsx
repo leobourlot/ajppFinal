@@ -1,5 +1,6 @@
 import './Footer.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import bourder from '../Img/logoBourder.svg'
 
 
 export function Footer() {
@@ -21,6 +22,10 @@ export function Footer() {
                             <a href="https://www.instagram.com/ajppargentina/"><i className="fab fa-instagram"></i></a>
                             <a href="https://twitter.com/ajppargentina"><i className="fab fa-twitter"></i></a>
                             <p className='p-footer'>Copyright © 2024. AJPP Argentina. Todos los derechos reservados.</p>
+
+                        </div>
+                        <div>
+                            <p className='p-footer-creador'>Sitio web desarrollado por <a href="https://www.bourderweb.com.ar" className='creador' target='_blank'>BOURDER WEB <img src= {bourder} alt='Logo Bourder Web' className='logoBourder'/> </a> </p>
                         </div>
                     </div>
                 </div>

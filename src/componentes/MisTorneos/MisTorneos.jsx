@@ -131,7 +131,7 @@ export function MisTorneos() {
     const buscarTorneo = async () => {
         const fechaActual = new Date();
 
-        // console.log('idJugador es: ', userData.user.idJugador)
+        console.log('idJugador es: ', userData.user.idJugador);
         axios.get(baseURL + '/api/v1/jugadorTorneo/misInscriptos/' + userData.user.idJugador, {
             headers: {
                 Authorization: `Bearer ${userData.token}`
