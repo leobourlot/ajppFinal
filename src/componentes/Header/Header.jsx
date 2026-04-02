@@ -17,7 +17,7 @@ export function Header() {
 
     const irInicio = () => {
         setUserData(null);
-        {<Link to="/"/>};
+        navigate("/");
     };
 
     const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar si el menú está abierto

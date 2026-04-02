@@ -82,12 +82,13 @@
 
 #imgModalContainer {
     display: flex;
-    width: 1000px;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
 .imgModal {
+    width: 100%;
     border-radius: 10px;
 }
 

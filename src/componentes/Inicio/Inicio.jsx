@@ -54,8 +54,10 @@ export function Inicio() {
                                     <img className='imagenTorneo'
                                         src={url}
                                         onClick={() => modalFoto(url, 'Próximo torneo')}
+                                        width="400"
+                                        height="500"
                                         alt="Próximo torneo"
-                                        fetchpriority='high' />
+                                        fetchPriority='high' />
                                     {/* <Button className='inscripciones' variant="warning" href='https://forms.gle/GB1AqA3SCag3nZAy8' target="_blank">Inscripciones</Button>{' '} */}
                                 </div>
                             </div>
@@ -64,6 +66,8 @@ export function Inicio() {
                                     <img className='imagenTorneo'
                                         src={url2}
                                         onClick={() => modalFoto(url2, 'Próximo torneo')}
+                                        width="400"
+                                        height="500"
                                         alt="Próximo torneo"
                                         fetchpriority='high' />
                                 </div>
@@ -82,7 +86,7 @@ export function Inicio() {
                     {subtituloModal && <Modal.Title>{subtituloModal}</Modal.Title>}
                 </Modal.Header>
                 <Modal.Body>
-                    {fotoSeleccionada && (<img src={fotoSeleccionada} alt="Calendario de torneos" className="imgModal" />)}
+                    {fotoSeleccionada && (<img src={fotoSeleccionada} alt="Calendario de torneos" className="imgModal" height="700" width="auto" />)}
                 </Modal.Body>
             </Modal>
         </>

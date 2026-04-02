@@ -22,6 +22,7 @@ header {
 .logo img {
     float: left;
     height: 10vh;
+    width: auto;
     margin-right: 20px;
 }
 

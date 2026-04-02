@@ -16,11 +16,11 @@ footer p{
     margin-bottom: 1px!important;
 }
 
-footer a i{
+footer a .fab{
     margin-top: 2vh;
     margin-left: 20px;
     margin-right: 20px;
-    width: 10px;
+    width: 25px;
     color: #FFDF5A;
 }
 

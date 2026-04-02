@@ -1,14 +1,14 @@
-.contenedorAdministrador{
+.contenedorAdministrador {
     height: auto;
 }
 
-.row{
+.row {
     align-items: center;
 }
 
 
 
-#cardTorneos{
+#cardTorneos {
     cursor: pointer;
     height: 20vh;
     background-color: #052576;
@@ -16,17 +16,18 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 5vh;
-    /* margin-right: 1%; */
-    
+    /* margin-bottom: 5vh; */
+    color: antiquewhite
+        /* margin-right: 1%; */
+
 }
 
-.card .bg-success{
+.card .bg-success {
     --bs-bg-opacity: 0;
     /* background-color: none!important; */
 }
 
-#cardInscriptos{
+#cardInscriptos {
     cursor: pointer;
     height: 20vh;
     background-color: #052576;
@@ -34,11 +35,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 5vh;
-
+    /* margin-bottom: 5vh; */
+    color: antiquewhite
 }
 
-#cardMisTorneos{
+#cardMisTorneos {
     cursor: pointer;
     height: 20vh;
     background-color: #052576;
@@ -46,11 +47,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 5vh;
-
+    /* margin-bottom: 5vh; */
+    color: antiquewhite
 }
 
-#cardJugadores{
+#cardJugadores {
     cursor: pointer;
     height: 20vh;
     background-color: #052576;
@@ -58,11 +59,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 5vh;
-
+    /* margin-bottom: 5vh; */
+    color: antiquewhite
 }
 
-#cardImagenes{
+#cardImagenes {
     cursor: pointer;
     height: 20vh;
     background-color: #052576;
@@ -70,11 +71,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 5vh;
-
+    /* margin-bottom: 5vh; */
+    color: antiquewhite
 }
 
-#cardNoticias{
+#cardNoticias {
     cursor: pointer;
     height: 20vh;
     background-color: #052576;
@@ -82,11 +83,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 5vh;
-
+    /* margin-bottom: 5vh; */
+    color: antiquewhite
 }
 
-#cardOrganizadores{
+#cardOrganizadores {
     cursor: pointer;
     height: 20vh;
     background-color: #052576;
@@ -94,18 +95,18 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 5vh;
-
+    /* margin-bottom: 5vh; */
+    color: antiquewhite;
 }
 
-#bienvenida{
+#bienvenida {
     text-align: center;
     margin-top: 7vh;
     margin-bottom: 7vh;
 }
 
-@media (max-width: 768px){
-    .contenedorAdministrador{
+@media (max-width: 768px) {
+    .contenedorAdministrador {
         margin-top: 25%
     }
 }
