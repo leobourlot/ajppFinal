@@ -1,6 +1,7 @@
 .registro-container {
-    background: rgb(4, 30, 112);
-    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    /* background: rgb(4, 30, 112); */
+    /* background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%); */
+    background: linear-gradient(0deg, rgb(1, 21, 87) 0%, rgb(0, 49, 106) 85%);
     height: auto;
     display: flex;
     justify-content: center;

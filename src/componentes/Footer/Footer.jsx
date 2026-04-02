@@ -23,7 +23,7 @@ export function Footer() {
                             <a href="https://www.youtube.com/@ajppargentina341" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faYoutube} className="fab" /></a>
                             <a href="https://www.instagram.com/ajppargentina/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} className="fab" /></a>
                             <a href="https://twitter.com/ajppargentina" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faTwitter} className="fab" /></a>
-                            <p className='p-footer'>Copyright © 2024. AJPP Argentina. Todos los derechos reservados.</p>
+                            <p className='p-footer'>Copyright {new Date().getFullYear()}. AJPP Argentina. Todos los derechos reservados.</p>
 
                         </div>
                         <div>

@@ -36,7 +36,7 @@ export function Inicio() {
                         <div className='row'>
                             <div className='col-12'>
                                 <div className='textoCircuito'>
-                                    <p> <strong>Circuito AJPP Tour 2025 </strong></p>
+                                    <p> <strong>Circuito AJPP Tour {new Date().getFullYear()} </strong></p>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ export function Inicio() {
                                         width="400"
                                         height="500"
                                         alt="Próximo torneo"
-                                        fetchPriority='high' />
+                                        fetchpriority='high' />
                                     {/* <Button className='inscripciones' variant="warning" href='https://forms.gle/GB1AqA3SCag3nZAy8' target="_blank">Inscripciones</Button>{' '} */}
                                 </div>
                             </div>
@@ -81,14 +81,14 @@ export function Inicio() {
                 </div >
             </div>
 
-            <Modal id='imgModalContainer' show={fotoSeleccionada !== null} onHide={() => setFotoSeleccionada(null)}>
+            {/* <Modal id='imgModalContainer' show={fotoSeleccionada !== null} onHide={() => setFotoSeleccionada(null)}>
                 <Modal.Header closeButton>
                     {subtituloModal && <Modal.Title>{subtituloModal}</Modal.Title>}
                 </Modal.Header>
                 <Modal.Body>
-                    {fotoSeleccionada && (<img src={fotoSeleccionada} alt="Calendario de torneos" className="imgModal" height="700" width="auto" />)}
+                    {fotoSeleccionada && (<img src={fotoSeleccionada} alt="Calendario de torneos" className="imgModal" />)}
                 </Modal.Body>
-            </Modal>
+            </Modal> */}
         </>
     )
 }

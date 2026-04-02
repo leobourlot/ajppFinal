@@ -1,8 +1,8 @@
 /*BANNER*/
 
 .banner-container .banner {
-    background: rgb(4, 30, 112);
-    background: linear-gradient(0deg, rgba(4, 30, 112, 1) 0%, rgba(2, 67, 143, 1) 85%);
+    /* background: rgb(4, 30, 112); */
+    background: linear-gradient(0deg, rgb(1, 21, 87) 0%, rgb(0, 49, 106) 85%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,8 @@
     display: flex;
     justify-content: center;
     color: white;
-    font-family: sans-serif;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.05em;
     font-size: 4rem;
     text-align: center;
 }
@@ -25,6 +26,9 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.05em;
+
 }
 
 .banner-container .banner .content h3 {
@@ -89,7 +93,17 @@
 
 .imgModal {
     width: 100%;
+    height: auto;
     border-radius: 10px;
+}
+
+#imgModalContainer .modal-dialog {
+    max-width: 500px;
+    margin: auto;
+}
+
+#imgModalContainer .modal-content {
+    width: 100% !important;
 }
 
 @media (max-width:768px) {
@@ -120,6 +134,7 @@
 
     #imgModalContainer {
         width: 300px;
+        margin-top: 15vh;
     }
 
     .banner-container .banner .content {
@@ -132,6 +147,7 @@
 
     .textoCircuito {
         font-size: 3rem;
+        margin-top:5vh
     }
 }
 
@@ -151,6 +167,7 @@
 
     .textoCircuito {
         font-size: 4rem;
+        margin-top: 5vh
     }
 
 }
@@ -167,6 +184,17 @@
 
     }
 
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+    .imagenTorneo {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .contenedorImagenTorneo {
+        margin-bottom: 3vh;
+    }
 }
 
 @media ((min-width: 1201px) and (max-width: 1500px)) {

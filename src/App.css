@@ -6,14 +6,14 @@ body{
     /* background-image: './Img/Jugador.png'; */
 }
 
-.sponsors {
+/* .sponsors {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: row; */
+
     align-items: center;
     justify-content: space-between;
     margin-top: 15vh;
-    /* margin-bottom: 5vh; */
+
 }
 
 .fotoSponsor{
@@ -30,9 +30,9 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 9vh;
-}
+} */
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
     .sponsors .col-lg-1 {
         margin-top: 0;
     }
@@ -40,4 +40,4 @@ body{
     .sponsors .col-md-3 {
         margin-top: 0vh;
     }
-}
+} */

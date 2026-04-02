@@ -5,26 +5,26 @@ export function SponsorsProp() {
         <>
 
             <div className='sponsors'>
-                <div className='col-3 col-sm-3 col-md-3 col-lg-1'>
+                <div>
                     <img className="fotoSponsor"
                         src={require(`../Img/LogoAJPP.png`)}
                         alt={`Sponsor`}
                         loading="lazy" />
                 </div>
 
-                <div className='col-3 col-sm-3 col-md-3 col-lg-1'>
+                <div>
                     <img className="fotoSponsor"
                         src={require(`../Img/LogoAtomik.png`)}
                         alt={`Sponsor`}
                         loading="lazy" />
                 </div>
-                <div className='col-3 col-sm-3 col-md-3 col-lg-1'>
+                <div>
                     <img className="fotoSponsor"
                         src={require(`../Img/LogoSixty.png`)}
                         alt={`Sponsor`}
                         loading="lazy" />
                 </div>
-                <div className='col-3 col-sm-3 col-md-3 col-lg-1'>
+                <div>
                     <img className="fotoSponsor"
                         src={require(`../Img/LogoOdpro2026.png`)}
                         alt={`Sponsor`}
@@ -36,7 +36,7 @@ export function SponsorsProp() {
                         alt={`Sponsor`}
                         loading="lazy" />
                 </div> */}
-                <div className='col-3 col-sm-3 col-md-3 col-lg-1'>
+                <div>
                     <img className="fotoSponsor"
                         src={require(`../Img/LogoAJPPAscenso.png`)}
                         alt={`Sponsor`}

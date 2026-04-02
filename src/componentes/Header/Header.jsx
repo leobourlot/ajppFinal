@@ -43,7 +43,7 @@ export function Header() {
                         </button>
                         <ul className={`menu ${menuOpen ? "show" : ""}`}>
                             <li><Link to="/" onClick={closeMenu}>Inicio</Link></li>
-                            <li><Link to="/laAsociacion" onClick={closeMenu}>La asociación</Link></li>
+                            {/* <li><Link to="/laAsociacion" onClick={closeMenu}>La asociación</Link></li> */}
                             <li><Link to="/noticias" onClick={closeMenu}>Noticias</Link></li>
                             <li><Link to="/calendario" onClick={closeMenu}>Calendario</Link></li>
                             <li><Link to="/ranking" onClick={closeMenu}>Ranking</Link></li>
